@@ -3,8 +3,8 @@ using namespace std;
 #include<bits/stdc++.h>
 void sort(int *arr,int n)
 {
-    int count[256];
-    for(int i=0;i<256;i++)
+    int count[100];
+    for(int i=0;i<100;i++)
     {
         count[i]=0;
     }
@@ -13,7 +13,7 @@ void sort(int *arr,int n)
     {
         count[arr[i]]=arr[i];
     }
-    for(int i=1;i<256;i++)
+    for(int i=1;i<100;i++)
     {
         count[i]+=count[i-1];
     }
@@ -49,9 +49,9 @@ int main()
     int rright=0;
     while(l<r)
     {
-        if(arr[l]+arr[r]-sum<diff)
+        if(abs(arr[l]+arr[r]-sum)<diff)
         {
-            diff=arr[l]+arr[r]-sum;
+            diff=abs(arr[l]+arr[r]-sum);
             rleft=l;
             rright=r;
         }
